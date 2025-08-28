@@ -6,12 +6,12 @@ Sample large package to check the time to scan it through clamav.
 To build this package:
 ```
 pip install wheel setuptools
-python setup.py bdist_wheel
+make build
 ```
 
 The sample file was created using the command:
 ```
-dd if=/dev/random of=large_dummy_file.bin bs=1M count=1950
+make create-large-file
 ```
 
 
@@ -83,6 +83,8 @@ End Date:   2025:08:28 17:27:41
 
 * removing the `large_dummy_file.bin` file, **rebuilding** the wheel package, and **re-running** the scan
 ```
+$ make clean remove-large-file
+$ make build
 $ podman run -it --rm \
   --volume ./dist/sample_python_clamav_test-0.1.0-py3-none-any.whl:/tmp/test.whl:ro \
   --volume /tmp/clamd.conf:/tmp/clamd.conf:ro \
