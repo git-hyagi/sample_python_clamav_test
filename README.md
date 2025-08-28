@@ -80,3 +80,20 @@ Time: 0.004 sec (0 m 0 s)
 Start Date: 2025:08:28 17:27:41
 End Date:   2025:08:28 17:27:41
 ```
+
+* removing the `large_dummy_file.bin` file, **rebuilding** the wheel package, and **re-running** the scan
+```
+$ podman run -it --rm \
+  --volume ./dist/sample_python_clamav_test-0.1.0-py3-none-any.whl:/tmp/test.whl:ro \
+  --volume /tmp/clamd.conf:/tmp/clamd.conf:ro \
+  --name clamav \
+  clamav/clamav:1.4.3_base clamdscan --config-file=/tmp/clamd.conf /tmp/test.whl
+/tmp/test.whl: Win.Test.EICAR_HDB-1 FOUND
+
+----------- SCAN SUMMARY -----------
+Infected files: 1
+Time: 0.016 sec (0 m 0 s)
+Start Date: 2025:08:28 18:09:01
+End Date:   2025:08:28 18:09:01
+
+```
