@@ -35,7 +35,7 @@ $ podman run -it --rm \
   --volume ./dist/sample_python_clamav_test-0.1.0-py3-none-any.whl:/tmp/test.whl:ro \
   --volume /tmp/clamd.conf:/tmp/clamd.conf:ro \
   --name clamav \
-  clamav/clamav:1.4.3_base clamdscan --config-file=/tmp/clamd.conf /tmp/test.whl
+  clamav/clamav:1.4.3_base clamdscan --stream --config-file=/tmp/clamd.conf /tmp/test.whl
 
 /tmp/test.whl: OK
 
@@ -53,7 +53,7 @@ $ podman run -it --rm \
   --volume ./dist/sample_python_clamav_test-0.1.0-py3-none-any.whl:/tmp/test.whl:ro \
   --volume /tmp/clamd.conf:/tmp/clamd.conf:ro \
   --name clamav \
-  clamav/clamav:1.4.3_base clamdscan --config-file=/tmp/clamd.conf /tmp/test.whl
+  clamav/clamav:1.4.3_base clamdscan --stream --config-file=/tmp/clamd.conf /tmp/test.whl
 
 /tmp/test.whl: OK
 
@@ -70,7 +70,7 @@ $ podman run -it --rm \
   --volume ./sample_python_clamav_test/test_eicar.txt:/tmp/test_eicar.txt:ro \
   --volume /tmp/clamd.conf:/tmp/clamd.conf:ro \
   --name clamav \
-  clamav/clamav:1.4.3_base clamdscan --config-file=/tmp/clamd.conf /tmp/test_eicar.txt
+  clamav/clamav:1.4.3_base clamdscan --stream --config-file=/tmp/clamd.conf /tmp/test_eicar.txt
 
 /tmp/test_eicar.txt: Win.Test.EICAR_HDB-1 FOUND
 
@@ -89,7 +89,7 @@ $ podman run -it --rm \
   --volume ./dist/sample_python_clamav_test-0.1.0-py3-none-any.whl:/tmp/test.whl:ro \
   --volume /tmp/clamd.conf:/tmp/clamd.conf:ro \
   --name clamav \
-  clamav/clamav:1.4.3_base clamdscan --config-file=/tmp/clamd.conf /tmp/test.whl
+  clamav/clamav:1.4.3_base clamdscan --stream --config-file=/tmp/clamd.conf /tmp/test.whl
 /tmp/test.whl: Win.Test.EICAR_HDB-1 FOUND
 
 ----------- SCAN SUMMARY -----------
@@ -97,5 +97,4 @@ Infected files: 1
 Time: 0.016 sec (0 m 0 s)
 Start Date: 2025:08:28 18:09:01
 End Date:   2025:08:28 18:09:01
-
 ```
