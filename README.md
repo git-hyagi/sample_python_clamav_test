@@ -33,7 +33,7 @@ EOF
 ```
 $ podman run -it --rm \
   --volume ./dist/sample_python_clamav_test-0.1.0-py3-none-any.whl:/tmp/test.whl:ro \
-  --volume ./sample_python_clamav_test/test_eicar.txt:/tmp/test_eicar.txt:ro \
+  --volume /tmp/clamd.conf:/tmp/clamd.conf:ro \
   --name clamav \
   clamav/clamav:1.4.3_base clamdscan --config-file=/tmp/clamd.conf /tmp/test.whl
 
@@ -51,7 +51,7 @@ End Date:   2025:08:28 17:24:20
 ```
 $ podman run -it --rm \
   --volume ./dist/sample_python_clamav_test-0.1.0-py3-none-any.whl:/tmp/test.whl:ro \
-  --volume ./sample_python_clamav_test/test_eicar.txt:/tmp/test_eicar.txt:ro \
+  --volume /tmp/clamd.conf:/tmp/clamd.conf:ro \
   --name clamav \
   clamav/clamav:1.4.3_base clamdscan --config-file=/tmp/clamd.conf /tmp/test.whl
 
