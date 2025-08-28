@@ -1,0 +1,4 @@
+*.bin
+dist/*
+build/*
+sample_python_clamav_test.egg-info/*
